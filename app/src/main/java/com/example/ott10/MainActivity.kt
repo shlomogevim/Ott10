@@ -3,6 +3,8 @@ package com.example.ott10
 import android.graphics.drawable.AnimatedVectorDrawable
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
+import com.example.ott10.databinding.ActivityMainBinding
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -12,16 +14,33 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
     }
 */
+   /*override fun onCreate(savedInstanceState: Bundle?) {
+       super.onCreate(savedInstanceState)
+       val binding: ActivityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-
+       val user = User("Kuma", 23)
+       binding.setVariable(BR.user, user)
+       binding.executePendingBindings()
+   }*/
 
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
-            setContentView(R.layout.activity_main)
+           // setContentView(R.layout.activity_main)
+
+            val binding: ActivityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+           val ott1=Ott("ahiin","@drawable/aahin")
+           // binding.start.setOnClickListener {
+               binding.setVariable(BR.ott,ott1)
+               binding.executePendingBindings()
+          //  }
+
+
+
+           /* setContentView(R.layout.activity_main)
             start.setOnClickListener {
                 val avd = image.drawable as AnimatedVectorDrawable
                 avd.start()
-            }
+            }*/
     }
 
 
